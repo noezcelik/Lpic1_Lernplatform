@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .info-container {
+            background-color: #fff;
+            border: 2px solid #d7b15e;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        h3 {
+            font-size: 32px;
+            color: #007acc;
+            margin: 10px 0;
+        }
+
+        #correct-answer, #false-answer {
+            font-weight: bold;
+            color: #333;
+        }
+
+        button {
+            background-color: #007acc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #b1b39d;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-container">
+        <h3>Der Fragenzahl: 120</h3>
+        <h3>Richtige Answers: <span id="correct-answer">{{shs.getCorrectAnswer()}}</span></h3>
+        <h3>Falsche Antwort: <span id="false-answer">{{shs.getFalseAnswer()}}</span></h3>
+        <button class="btn btn-primary" routerLink="">Home Seite</button>
+    </div>
+</body>
+</html>

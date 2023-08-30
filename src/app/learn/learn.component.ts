@@ -17,15 +17,15 @@ export class LearnComponent {
     this.service.getQuestions().subscribe(data=>{this.questions=data})
   }
 
-  showAnswer(index: number) {
+  antwortZeigen(index: number) {
     this.questions[index].showAnswer = true;
   }
 
 
-  selectQuestion(index: number): void {
+  auswahlQuestion(index: number): void {
     this.selectedQuestionIndex = index;
   }
-  deselectQuestion(): void {
+  nauswahlQuestion(): void {
     this.selectedQuestionIndex = null;
   }
 

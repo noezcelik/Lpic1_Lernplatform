@@ -1,0 +1,39 @@
+<div class="outer-frame">
+  <div class="inner-frame">
+    <div *ngIf="Questions && Questions.length > 0">
+      <h1>{{ currentIndex + 1 }}.Frage:</h1>
+      <p>{{ Questions[currentIndex].question }}</p>
+
+      <div *ngIf="Questions[currentIndex].questionType === 'fill-in'">
+        <h3>Schreiben</h3>
+        <label for="fill-in-input">Ihre Antwort:</label>
+        <input type="text" id="fill-in-input" (change)="Gewaehlt('', $event)" />
+      </div>
+
+      <div *ngFor="let option of Questions[currentIndex].options; let i = index">
+        <label *ngIf="Questions[currentIndex].questionType==='single-choice'">
+          <input type="radio" name="answer" [value]="option[0]" (change)="Gewaehlt(option[0], $event)"
+            [checked]="benutzerAnswers[currentIndex] && benutzerAnswers[currentIndex][0] === option[0]" />
+          {{ option }}
+        </label>
+        <label *ngIf="Questions[currentIndex].questionType==='multiple-choice'">
+          <input type="checkbox" [value]="option[0]" (change)="Gewaehlt(option[0], $event)"
+            [checked]="benutzerAnswers[currentIndex] && benutzerAnswers[currentIndex].includes(option[0])" />
+          {{ option }}
+        </label>
+      </div>
+
+      <!-- Uyarı Mesajı -->
+      <div *ngIf="isQuestionIncorrect" class="error-message">
+        {{ errorText }}
+      </div>
+
+      <div>
+        <button (click)="SkipQuestion()">Atla</button>
+        <button (click)="previousQuestion()">Vorherige</button>
+        <button (click)="onButtonClick()">Nächste</button>
+        <button (click)="Beenden()">beenden</button>
+      </div>
+    </div>
+  </div>
+</div>

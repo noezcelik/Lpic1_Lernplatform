@@ -5,17 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LearnComponent } from './learn/learn.component';
+import { CheckComponent } from './check/check.component';
+import { FormsModule } from '@angular/forms';
+import { ErgebnisComponent } from './ergebnis/ergebnis.component';
+import { PrufungComponent }from './prufung/prufung.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LearnComponent
+    LearnComponent,
+    CheckComponent,
+    ErgebnisComponent,
+    PrufungComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
