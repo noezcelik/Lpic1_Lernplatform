@@ -1,0 +1,30 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  color: black;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+h2 {
+  font-size: 45px;
+  color: black;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.btn {
+  font-size: 20px ;
+  padding: 20px 100px;
+  margin-right: 10px;
+
+}
