@@ -3,30 +3,26 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-}
 
-h1 {
-  font-size: 30px;
-  color: black;
-  margin-left: 5%;
-  margin-top: 3%;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 30 px;
   color: black;
-  margin-block-end: 3%;
+  margin-block-end: 4%;
 }
+
+
 
 .btn-container {
   color:#4c6faf;
   display: flex;
   justify-content: space-between;
-  margin-top: 35px;
+  margin-top: 30px;
 }
 .btn {
   font-size: 20px ;
-  padding: 20px 100px;
+  padding: 10px 75px;
   margin-right: 10px;
 
 }

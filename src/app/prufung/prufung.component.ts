@@ -30,7 +30,6 @@ export class PrufungComponent {
       this.shs.resetDaten();
     });
   }
-
   previousQuestion(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;
@@ -38,22 +37,18 @@ export class PrufungComponent {
       console.log('pre selOpt:', this.selectedOption);
     }
   }
-
   SkipQuestion(): void {
     this.currentIndex++;
   }
-
   isTrue(questionArrayIndex: number, benutzerAntwort: string[]): void {
     const correctAnswer = this.Questions[this.currentIndex].correctAnswer;
     const sortedCorrectAnswer = correctAnswer.slice().sort();
     const sortedBenutzerAntwort = benutzerAntwort.slice().sort();
-
     if (this.benutzerAnswers.length > questionArrayIndex) {
       this.benutzerAnswers[questionArrayIndex] = sortedBenutzerAntwort;
     } else {
       this.benutzerAnswers.push(sortedBenutzerAntwort);
     }
-
     if (this.isEqual(sortedCorrectAnswer, sortedBenutzerAntwort)) {
       this.correctAnswer++;
       console.log('Dogru cevap Sayisi', this.correctAnswer)
@@ -61,17 +56,13 @@ export class PrufungComponent {
       this.falseAnswer++;
       console.log('Yanlis cevap Sayisi', this.falseAnswer)
     }
-
     if (this.currentIndex >= this.Questions.length - 1 || this.falseAnswer > this.Questions.length * 0.2) {
       this.isExamFinished = true;
     }
-
     if (this.isExamFinished) {
       this.router.navigate(['/ergebnis']);
     }
-
     this.nextQuestion();
-
     this.shs.setCorrectAnswer(this.correctAnswer);
     this.shs.setfalseAnswer(this.falseAnswer);
   }
@@ -87,11 +78,9 @@ export class PrufungComponent {
       this.handleSingleChoiceQuestion(option);
     }
   }
-
   handleFillInQuestion(event: any): void {
     this.selectedOption = [event.target.value];
   }
-
   handleMultipleChoiceQuestion(option: string, event: any): void {
     if (event.target.checked) {
       this.selectedOption.push(option);
@@ -102,11 +91,9 @@ export class PrufungComponent {
       }
     }
   }
-
   handleSingleChoiceQuestion(option: string): void {
     this.selectedOption = [option];
   }
-
   isEqual(arr1: string[], arr2: string[]): boolean {
     if (arr1.length !== arr2.length) return false;
     const sorted1 = arr1.slice().sort();
@@ -116,30 +103,22 @@ export class PrufungComponent {
     }
     return true;
   }
-
   reset(): void {
     this.selectedOption = [];
   }
-
   async onButtonClick() {
     const questionArrayIndex = this.currentIndex;
     const benutzerAntwort = this.selectedOption;
     await this.isTrue(questionArrayIndex, benutzerAntwort);
     this.reset();
   }
-
   nextQuestion(): void {
     if (this.currentIndex < this.Questions.length - 1) {
       this.currentIndex++;
     }
   }
-
   Beenden(){
-
         this.router.navigate(['ergebnis']);
-
-
-
   }
 
 
